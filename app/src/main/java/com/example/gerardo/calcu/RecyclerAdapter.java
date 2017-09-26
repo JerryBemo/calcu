@@ -21,7 +21,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             };
 
     private String[] details = {"FORMULA GENERAL",
-            "ECUACIONES DE PRIMER GRADOs", "ECUACIONES DE SEGUNDO GRADO",
+            "ECUACIONES DE PRIMER GRADO", "ECUACIONES DE SEGUNDO GRADO",
             "ECUACIONES DE TERCER GRADO"};
 
     private int[] images = { R.drawable.android_image_1,
