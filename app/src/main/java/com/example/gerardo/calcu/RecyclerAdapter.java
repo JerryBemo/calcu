@@ -20,11 +20,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             "4",
             };
 
-    private String[] details = {"FORMULA GENERAL",
+    private String[] detalles = {"FORMULA GENERAL",
             "ECUACIONES DE PRIMER GRADO", "ECUACIONES DE SEGUNDO GRADO",
             "ECUACIONES DE TERCER GRADO"};
 
-    private int[] images = { R.drawable.android_image_1,
+    private int[] imagenes = { R.drawable.android_image_1,
             R.drawable.android_image_2,
             R.drawable.android_image_3,
             R.drawable.android_image_4,
@@ -32,17 +32,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        public int currentItem;
-        public ImageView itemImage;
-       // public TextView itemTitle;
-        public TextView itemDetail;
+        public ImageView Imagenes;
+        public TextView imagenesDetalles;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            itemImage = (ImageView)itemView.findViewById(R.id.item_image);
-            //itemTitle = (TextView)itemView.findViewById(R.id.item_title);
-            itemDetail =
-                    (TextView)itemView.findViewById(R.id.item_detail);
+            Imagenes = (ImageView)itemView.findViewById(R.id.item_image);
+            imagenesDetalles = (TextView)itemView.findViewById(R.id.item_detail);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
@@ -88,8 +84,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
        // viewHolder.itemTitle.setText(titles[i]);
-        viewHolder.itemDetail.setText(details[i]);
-        viewHolder.itemImage.setImageResource(images[i]);
+        viewHolder.imagenesDetalles.setText(detalles[i]);
+        viewHolder.Imagenes.setImageResource(imagenes[i]);
     }
 
     @Override
