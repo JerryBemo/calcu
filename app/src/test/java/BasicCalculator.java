@@ -157,6 +157,12 @@ class BasicCalculator {
             BigDecimal num1 = new BigDecimal(n1);
             /*radians = degrees x PI / 180 (deg to rad conversion)
             degrees = radians x 180 / PI (rad to deg conversion) */
+            /*AQUI ESTÁ EL PROBLEMA, cuando esta especifico en radianes no pasa nada malo, calcula en senos y coseno calcula de otra forma, es error biene  cuando se transforma
+            * de grados a radianes, pues dice que necesita redondeo, eso de 10.5 sube a 11, pero se le dá un redoendeo en numRadian, y de todos modos truena, basicamenete
+            * no reconoce bien el bigdecimal resultante de la conversión, el setScale es para decir cuantos numeros de decimales se van a presentar,
+            * y tambien sirve como eso del problema de redondeo, por otra parte manda otro error moviendo todo eso de los formatos que indica que no haya un numero de caracteres mayor a 0 y pues no tiene
+            * logica, ya tambien lo intenté con el pi de BigDecimalMath.pi(MathContext.DECIMAL32764/unlimited); y me manda otros errores*/
+
             if("sincostansihcoh".contains(op)) {
                 //BigDecimal numRadian = num1.multiply(BigDecimalMath.pi(MathContext.DECIMAL32).divide(new BigDecimal("180"), numberOfDecimals, RoundingMode.HALF_DOWN));
                // BigDecimal numRadian = num1;
@@ -171,6 +177,7 @@ class BasicCalculator {
                     if (inDegree) result = BigDecimalMath.cos(numRadian).setScale(numberOfDecimals);
                     else result = BigDecimalMath.cos(num1.setScale(numberOfDecimals)).setScale(numberOfDecimals);
                 }
+
                 if (op.equals("tan")) result = BigDecimalMath.tan(num1.setScale(numberOfDecimals)).setScale(numberOfDecimals);
                 if (op.equals("sih")) result = BigDecimalMath.sinh(num1.setScale(numberOfDecimals)).setScale(numberOfDecimals);
                 if (op.equals("coh")) result = BigDecimalMath.cosh(num1.setScale(numberOfDecimals)).setScale(numberOfDecimals);
